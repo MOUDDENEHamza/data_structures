@@ -1,10 +1,12 @@
-#!/bin/sh
-
 GCC = gcc
 SRC_TP1 = src/tp1/
 FILE_TP1 = hello sum update_sum
 BIN = bin/
 LIB = -lm
+GIT = git
+ADD = add .
+COMMIT = commit -m "release"
+PUSH = push
 
 compile_tp1 : $(SRC_TP1)
 	for src in $(FILE_TP1); do \
