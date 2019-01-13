@@ -4,6 +4,7 @@
 
 #define BUFFER 255
 #define RED "\x1B[31m"
+#define YELLOW "\x1B[33m"
 #define RESET "\x1B[0m"
 
 void display_message(char *msg){
@@ -58,28 +59,32 @@ int stringToInteger(char t[]){
 /*Main loop*/
 int main(int argc, char *argv[]){
 	//Initialize variables.
+	int n = 2;
+	int k;
 	int i;
 	int j;
 	int res = 0;
 	char c;
-	char msg[BUFFER] = RED"ERROR :"RESET" Wrong usage, 2 parameters expected: ./sum param1 param2";
+	char t[n][BUFFER];
+	char msg[BUFFER] = YELLOW"WARNING :"RESET" You can enter just 2 parameters.";
 
-	if (argc > 3){
-		display_message(msg);
-		return 1;
+	display_message(msg);
+	for (k = 0; k < n; k++){
+		printf("Enter your parameters N°%d : ", k + 1);
+		scanf("%s", t[k]);
 	}
-	for (i = 1; i < argc; i++){
-		for (j = 0; j < strlen(argv[i]); j++){	
-			if (isCharInteger(&argv[i][j]) == 0){
+	for (i = 0; i < n; i++){
+		for (j = 0; j < strlen(t[i]); j++){	
+			if (isCharInteger(&t[i][j]) == 0){
 				return 1;
 			}
 		}
-		if ( i == argc - 1){
-			printf("%d = ", stringToInteger(argv[i]));
+		if ( i == n - 1){
+			printf("%d = ", stringToInteger(t[i]));
 		} else{
-			printf("%d + ", stringToInteger(argv[i]));
+			printf("%d + ", stringToInteger(t[i]));
 		}
-		res += stringToInteger(argv[i]);
+		res += stringToInteger(t[i]);
 	}
 	
 	printf("%d\n", res);
