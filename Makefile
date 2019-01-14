@@ -10,8 +10,8 @@ PUSH = push
 
 all :
 	@read -p "Enter the number of TP that you want compile : " number; \
-	make compile; \
-	make run;
+	make compile -s; \
+	make run -s;
 
 compile : $(SRC_TP1)
 	for src in $(FILE_TP1); do \
