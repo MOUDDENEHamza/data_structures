@@ -1,5 +1,6 @@
 MAKE = make
 GCC = gcc
+ECHO = echo
 SRC_TP1 = src/tp1/
 FILE_TP1 = hello sum update_sum
 BIN = bin/
@@ -22,9 +23,9 @@ compile_tp1 : $(SRC_TP1)
 
 run_tp1 : 
 	for src in $(FILE_TP1); do \
-                echo '\n'--------------------$$src.c--------------------; \
+                $(ECHO) '\n'--------------------$$src.c--------------------; \
                 ./$(BIN)$$src; \
-		echo ---------------------------------------------'\n'; \
+		$(ECHO) ---------------------------------------------'\n'; \
 	done
 
 git : 
