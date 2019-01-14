@@ -27,7 +27,7 @@ run :
 
 git : 
 	@read -p "Enter the message to set up the commit : " message; \
-	$(GIT) $(ADD) && $(GIT) $(COMMIT) $$message && $(PUSH);
+	$(GIT) $(ADD) && $(GIT) $(COMMIT) $$message && $(GIT) $(PUSH);
 
 clean : 
 	rm bin/*
