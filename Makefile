@@ -5,15 +5,20 @@ BIN = bin/
 LIB = -lm
 GIT = git
 ADD = add .
-COMMIT = commit -m "release"
+COMMIT = commit -m
 PUSH = push
 
-compile_tp1 : $(SRC_TP1)
+all :
+	@read -p "Enter the number of TP that you want compile : " number; \
+	make compile; \
+	make run;
+
+compile : $(SRC_TP1)
 	for src in $(FILE_TP1); do \
 		$(GCC) $(SRC_TP1)$$src.c -o $(BIN)$$src $(LIB); \
 	done
 
-run_tp1 : 
+run : 
 	for src in $(FILE_TP1); do \
                 echo --------------------$$src.c--------------------; \
                 ./$(BIN)$$src; \
@@ -21,7 +26,8 @@ run_tp1 :
 	done
 
 git : 
-	$(GIT) $(ADD) && $(GIT) $(COMMIT) && $(GIT) $(PUSH)
+	@read -p "Enter the message to set up the commit : " message; \
+	$(GIT) $(ADD) && $(GIT) $(COMMIT) $$message && $(PUSH);
 
 clean : 
 	rm bin/*
