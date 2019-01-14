@@ -5,13 +5,9 @@ techniques.
 
 #						COMPILE & RUN
 
--To compile the TP number 1, you have to type:
+-To compile and run the program, you have to type:
 	
-					make compile_tp1	
-
--To run the TP number 1, you have to type:
-	
-					make run_tp1
+					make
 
 -To clean the project, you have to type:
 			
