@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct carte{
 	/* à compléter */
@@ -50,13 +51,13 @@ int main(){
 	Carte jeu2[32];
 	int N1=15; /* indice de la derniere carte joueur 1 */
 	int N2=15;
-	
+
 	initjeu(jeu);
 	srand(12500); /* initialisation du générateur aléatoire */
 	melange(jeu);
 	distribue(jeu,jeu1,jeu2);
-	while () { /* tant que la partie n’est pas terminee */
-	joue1coup(jeu1,jeu2,&N1,&N2);
+	while (0) { /* tant que la partie n’est pas terminee */
+		joue1coup(jeu1,jeu2,&N1,&N2);
 	}
 	/* afficher qui gagne et en combien de coups */
 	return 0;
