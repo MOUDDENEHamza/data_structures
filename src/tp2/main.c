@@ -70,8 +70,8 @@ void display(Card game[],int *N){
 }
 
 /*Distribute the cards to both players*/
-void distribue(Card jeu[], Card jeu1[], Card jeu2[]){
-	/* à compléter */
+void distribue(Card game[], Card game1[], Card game2[]){
+	
 	return;
 }
 
@@ -95,11 +95,12 @@ int main(int argc, char *argv[]){
 	random_integer();//Fill the array with the 32 cards.
 	mix(game);//Mix the cards.
 	display(game, &N);//Display the card game.
-
-	//distribute(game, game1, game2);//Distribute the cards to both players.
-	//while (0) { /* tant que la partie n’est pas terminee */
+	distribute(game, game1, game2);//Distribute the cards to both players.
+	
+	//while (1) { /* tant que la partie n’est pas terminee */
 	//	joue1coup(jeu1,jeu2,&N1,&N2);
 	//}
 	/* afficher qui gagne et en combien de coups */
+	
 	return 0;
 }
