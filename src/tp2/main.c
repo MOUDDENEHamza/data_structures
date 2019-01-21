@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "displayShell.h"
 
 #define BUFFER 255
 #define SIZE_GAME 32
@@ -194,6 +195,7 @@ int main(int argc, char *argv[]){
 	int N2 = 16;//Index of the last card of second player.
 	int x;
 	/*Start program*/
+	launch_program();
 	init_game(game);//Fill the array with the 32 cards.
 	srand(12500); //Initialization of the random generator.
 	random_integer();//Fill the array with the 32 cards.

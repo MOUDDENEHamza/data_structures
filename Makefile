@@ -41,6 +41,10 @@ run_tp2 :
                 ./$(BIN)$$src; \
                 $(ECHO) ---------------------------------------------'\n'; \
         done
+test :
+	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/main.c
+	$(GCC) -o $(BIN)main *.o
+	./bin/main
 
 git : 
 	$(READ) "Enter the message to set up the commit : " message; \
