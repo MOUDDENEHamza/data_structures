@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "struct.h"
 #include "displayShell.h"
 
 #define BUFFER 255
 #define SIZE_GAME 32
-
-/*This structure is about battle cards*/
-typedef struct Card{
-	int value;
-	char color[BUFFER];
-} Card;
 
 /*Fill the array with the 32 cards*/
 void init_game(Card game[]){
@@ -52,21 +47,6 @@ void mix(Card game[]){
 	for (i = 0; i < SIZE_GAME / 2; i++){
 		permute(&game[random_integer()], &game[random_integer()]);//Permute two random cards.
 	}
-	return;
-}
-
-/*Display card (Value, color)*/
-void display_card(Card X){
-	printf("%d, %s\n", X.value, X.color);
-	return;
-}
-
-/*Display N cards*/
-void display(Card game[],int *N){
-	int i;
-        for (i = 0; i < *N; i++){
-		display_card(game[i]);
-        }
 	return;
 }
 
@@ -195,7 +175,7 @@ int main(int argc, char *argv[]){
 	int N2 = 16;//Index of the last card of second player.
 	int x;
 	/*Start program*/
-	launch_program();
+	launch_program();//Display the init bar.
 	init_game(game);//Fill the array with the 32 cards.
 	srand(12500); //Initialization of the random generator.
 	random_integer();//Fill the array with the 32 cards.

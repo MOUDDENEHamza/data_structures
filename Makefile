@@ -6,7 +6,8 @@ SRC_TP2 = src/tp2/
 FILE_TP1 = hello sum update_sum
 FILE_TP2 = main
 BIN = bin/
-LIB = -lm
+LIB = lib/
+FLAG = -lm
 GIT = git
 ADD = add .
 COMMIT = commit -m
@@ -20,7 +21,7 @@ all :
 
 compile_tp1 : $(SRC_TP1)
 	for src in $(FILE_TP1); do \
-		$(GCC) $(SRC_TP1)$$src.c -o $(BIN)$$src $(LIB); \
+		$(GCC) $(SRC_TP1)$$src.c -o $(BIN)$$src $(FLAG); \
 	done
 
 run_tp1 : 
@@ -32,7 +33,7 @@ run_tp1 :
 
 compile_tp2 : $(SRC_TP2)
 	for src in $(FILE_TP2); do \
-                $(GCC) $(SRC_TP2)$$src.c -o $(BIN)$$src $(LIB); \
+                $(GCC) $(SRC_TP2)$$src.c -o $(BIN)$$src; \
         done
 
 run_tp2 : 
@@ -43,7 +44,9 @@ run_tp2 :
         done
 test :
 	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/main.c
-	$(GCC) -o $(BIN)main *.o
+	mv displayShell.o main.o $(LIB)
+	$(GCC) -o $(BIN)main lib/*.o
+	
 	./bin/main
 
 git : 
