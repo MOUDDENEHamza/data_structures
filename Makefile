@@ -42,9 +42,10 @@ run_tp2 :
                 ./$(BIN)$$src; \
                 $(ECHO) ---------------------------------------------'\n'; \
         done
+
 test :
-	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/main.c
-	mv displayShell.o main.o $(LIB)
+	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/init.c src/tp2/main.c
+	mv displayShell.o init.o main.o $(LIB)
 	$(GCC) -o $(BIN)main lib/*.o
 	./bin/main
 

@@ -3,12 +3,13 @@
 #include <string.h>
 #include "struct.h"
 #include "displayShell.h"
+#include "init.h"
 
 #define BUFFER 255
 #define SIZE_GAME 32
 
 /*Fill the array with the 32 cards*/
-void init_game(Card game[]){
+/*void init_game(Card game[]){
 	int i;
 	for (i = 0; i < SIZE_GAME; i++){
 		game[i].value = 7 + (i % 8);
@@ -27,31 +28,31 @@ void init_game(Card game[]){
 	}
 	return;
 }
-
+*/
 /*Generate a random integer between 0 and 31*/
-int random_integer(){
+/*int random_integer(){
 	return rand() % 32;
 }
-
+*/
 /*Permute 2 cards*/
-void permute(Card *card1, Card *card2){
+/*void permute(Card *card1, Card *card2){
 	Card temp = *card1;
 	*card1 = *card2;
 	*card2 = temp;
 	return;
 }
-
+*/
 /*Mix the cards*/
-void mix(Card game[]){
+/*void mix(Card game[]){
 	int i;
 	for (i = 0; i < SIZE_GAME / 2; i++){
 		permute(&game[random_integer()], &game[random_integer()]);//Permute two random cards.
 	}
 	return;
 }
-
+*/
 /*Distribute the cards to both players*/
-void distribute(Card game[], Card game1[], Card game2[], int *N){
+/*void distribute(Card game[], Card game1[], Card game2[], int *N){
         int i;
         for (i = 0; i < *N / 2; i ++){
 		game1[i] = game[i];
@@ -61,7 +62,7 @@ void distribute(Card game[], Card game1[], Card game2[], int *N){
 	}
 	return;
 }
-
+*/
 /*Update the game*/
 void update(Card game1[], Card game2[], int *N1, int *N2){
 	int i;
