@@ -46,7 +46,6 @@ test :
 	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/main.c
 	mv displayShell.o main.o $(LIB)
 	$(GCC) -o $(BIN)main lib/*.o
-	
 	./bin/main
 
 git : 
@@ -54,4 +53,4 @@ git :
 	$(GIT) $(ADD) && $(GIT) $(COMMIT) "$$message" && $(GIT) $(PUSH);
 
 clean : 
-	rm $(BIN)*
+	rm $(BIN)* $(LIB)*
