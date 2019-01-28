@@ -53,9 +53,11 @@ void distribute(Card game[], Card game1[], Card game2[], int *N){
         int i;
         for (i = 0; i < *N / 2; i ++){
                 game1[i] = game[i];
-        }
+		game[i].value = 0;
+	}
         for (i = *N / 2; i < SIZE_GAME; i++){
                 game2[i - (*N / 2)] = game[i];
+		game[i].value = 0;
         }
         return;
 }

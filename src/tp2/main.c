@@ -8,61 +8,6 @@
 #define BUFFER 255
 #define SIZE_GAME 32
 
-/*Fill the array with the 32 cards*/
-/*void init_game(Card game[]){
-	int i;
-	for (i = 0; i < SIZE_GAME; i++){
-		game[i].value = 7 + (i % 8);
-		if (i >= 0 && i < 8){
-			strcpy(game[i].color, "heart");
-		}
-		if (i >= 8 && i < 16){
-                        strcpy(game[i].color, "spade");
-                }
-		if (i >= 16 && i < 24){
-                        strcpy(game[i].color, "diamond");
-                }
-		if (i >= 24 && i < 32){
-                	strcpy(game[i].color, "club");
-                }
-	}
-	return;
-}
-*/
-/*Generate a random integer between 0 and 31*/
-/*int random_integer(){
-	return rand() % 32;
-}
-*/
-/*Permute 2 cards*/
-/*void permute(Card *card1, Card *card2){
-	Card temp = *card1;
-	*card1 = *card2;
-	*card2 = temp;
-	return;
-}
-*/
-/*Mix the cards*/
-/*void mix(Card game[]){
-	int i;
-	for (i = 0; i < SIZE_GAME / 2; i++){
-		permute(&game[random_integer()], &game[random_integer()]);//Permute two random cards.
-	}
-	return;
-}
-*/
-/*Distribute the cards to both players*/
-/*void distribute(Card game[], Card game1[], Card game2[], int *N){
-        int i;
-        for (i = 0; i < *N / 2; i ++){
-		game1[i] = game[i];
-	} 
-	for (i = *N / 2; i < SIZE_GAME; i++){
-		game2[i - (*N / 2)] = game[i];
-	}
-	return;
-}
-*/
 /*Update the game*/
 void update(Card game1[], Card game2[], int *N1, int *N2){
 	int i;
@@ -72,7 +17,6 @@ void update(Card game1[], Card game2[], int *N1, int *N2){
 	for (i = 0; i < *N2 - 1; i++){
                 game2[i] = game2[i + 1];
         }
-
 	return; 
 }
 
@@ -81,15 +25,15 @@ void play(Card game1[], Card game2[], int *N1, int *N2){
 	Card a, b;
 	a = game1[0];
 	b = game2[0];
-
 	if ( game1[0].value > game2[0].value){
 		*N2 -= 1;
 		*N1 += 1;
-		update(game1, game2, N1, N2);
+		printf("%d\t%d\n", *N1, *N2);
 		game1[*N1 - 2] = a;
-	        game1[*N1 - 1] = b;	
+		game1[*N1 - 1] = b;	
+		printf("%d\t%d\n", *a.value, *b.value);
+		update(game1, game2, N1, N2);
 	}
-
 	if ( game2[0].value > game1[0].value){
                 *N2 += 1;
                 *N1 -= 1;
@@ -97,7 +41,6 @@ void play(Card game1[], Card game2[], int *N1, int *N2){
                 game2[*N2 - 2] = a;
                 game2[*N2 - 1] = b;
         }
-	
 	else {
  		if (strcpy(game1[0].color, "heart") == 0 && strcpy(game2[0].color, "heart") != 0){
                 	*N2 -= 1;
@@ -131,7 +74,6 @@ void play(Card game1[], Card game2[], int *N1, int *N2){
                         game2[*N2 - 1] = b;
                 	return;
 		}
-
 		if (strcpy(game1[0].color, "diamond") == 0 && strcpy(game2[0].color, "diamond") != 0){
                         *N2 -= 1;
                         *N1 += 1;
@@ -148,7 +90,6 @@ void play(Card game1[], Card game2[], int *N1, int *N2){
                         game2[*N2 - 1] = b;
 			return;
                 }
-
 	}
 	return;
 }
@@ -163,8 +104,8 @@ int win(int *N1, int *N2){
                 return 1;
 	}
 	return 0;
-
 }
+
 /*Main loop*/
 int main(int argc, char *argv[]){
 	/*Initialize variables*/
@@ -181,21 +122,15 @@ int main(int argc, char *argv[]){
 	srand(12500); //Initialization of the random generator.
 	random_integer();//Fill the array with the 32 cards.
 	mix(game);//Mix the cards.
-	display(game, &N);//Display the card game.
+	display(game, game1, game2, &N, &N1, &N2);//Display the card game.
 	distribute(game, game1, game2, &N);//Distribute the cards to both players.
-        printf("*************game1*****************\n");
-	display(game1, &N1);//Display the card game.
-        printf("*************game2*****************\n");
-	display(game2, &N2);//Display the card game.
+	display(game, game1, game2, &N, &N1, &N2);//Display the card game.
 	while (win(&N1, &N2) == 0) {//As the game is not ended.
 		play(game1 ,game2, &N1, &N2);//Handle the result of a battle (1 shot).
-		if (win(&N1, &N2) == 1){//If the game is ended.
+		if (win(&N1, &N2) == 1) {//If the game is ended.
 			break;//End game.
 		}
-		printf("*************game1*****************\n");
-        	display(game1, &N1);//Display the card game.
-        	printf("*************game2*****************\n");
-        	display(game2, &N2);//Display the card game.
+	        display(game, game1, game2, &N, &N1, &N2);//Display the card game.
 		printf("turn : ");
 		scanf("%d", &x);
 	}

@@ -31,23 +31,22 @@ run_tp1 :
 		$(ECHO) ---------------------------------------------'\n'; \
 	done
 
-compile_tp2 : $(SRC_TP2)
-	for src in $(FILE_TP2); do \
-                $(GCC) $(SRC_TP2)$$src.c -o $(BIN)$$src; \
-        done
-
-run_tp2 : 
-	for src in $(FILE_TP2); do \
-                $(ECHO) '\n'--------------------$$src.c--------------------; \
-                ./$(BIN)$$src; \
-                $(ECHO) ---------------------------------------------'\n'; \
-        done
-
-test :
+compile_tp2 :
 	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/init.c src/tp2/main.c
 	mv displayShell.o init.o main.o $(LIB)
 	$(GCC) -o $(BIN)main lib/*.o
+
+run_tp2 : 
 	./bin/main
+
+compile_tp3 :
+	$(GCC) -I include/tp3/ -c src/tp3/displayShell.c src/tp3/stack.c src/tp3/main.c
+	mv displayShell.o stack.o main.o $(LIB)
+	$(GCC) -o $(BIN)main lib/*.o
+
+run_tp3 : 
+	./bin/main
+
 
 git : 
 	$(READ) "Enter the message to set up the commit : " message; \

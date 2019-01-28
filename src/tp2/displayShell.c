@@ -16,15 +16,31 @@ void launch_program() {
 
 /*Display card (Value, color)*/
 void display_card(Card X){
-        printf("%d, %s\n", X.value, X.color);
+        printf("%d, %s", X.value, X.color);
         return;
 }
 
 /*Display N cards*/
-void display(Card game[],int *N){
+void display(Card game[], Card game1[], Card game2[], int *N ,int *N1 ,int *N2){
         int i;
-        for (i = 0; i < *N; i++){
-                display_card(game[i]);
-        }
+        printf("\n GAME \t\t "BLUE"GAME1"RESET" \t\t\t "RED"GAME2"RESET" \n");
+	for (i = 0; i < *N; i++){
+		if (i > *N1 && i > *N2 && game[i].value == 0) {
+                        continue;
+                }
+		printf("\n");
+		if (i < *N && game[i].value != 0) {	
+			display_card(game[i]);
+                }
+		if (i < *N1 && game1[i].value != 0) {
+			printf(" \t\t ");
+			display_card(game1[i]);	
+		}
+		if (i < *N2 && game2[i].value != 0) {
+			printf(" \t\t ");
+			display_card(game2[i]);
+		}
+	}
+	printf("\n\n-----------------------------------------------------------------------------\n");
         return;
 }

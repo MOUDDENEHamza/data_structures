@@ -10,6 +10,6 @@ void launch_program();
 void display_card(Card X);
 
 /*Display N cards*/
-void display(Card game[],int *N);
+void display(Card game[], Card game1[], Card game2[], int *N ,int *N1 ,int *N2);
 
 #endif
