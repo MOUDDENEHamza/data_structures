@@ -19,7 +19,7 @@ int size(void);
 /*Get the item in the summit of stack*/
 int get(void);
 
-/*Add value to sumiit of my stack*/
+/*Add value to summit of my stack*/
 void add(int value);
 
 /*Remove item from the summit of my stack*/

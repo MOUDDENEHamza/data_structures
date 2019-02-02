@@ -24,9 +24,9 @@ void display_labyrinth(int *n, int *p, int **t){
 	for (i = 0; i < *n; i++) {
 		for (j = 0; j < *p; j++) {
 			if ( t[i][j] == 0){
-				printf(RED"X"RESET"\t");
+				printf(RED"X"RESET" ");
 			} else {
-				printf(BLUE"."RESET"\t");
+				printf(BLUE"."RESET" ");
 			}
 		}
 		printf("\n");
