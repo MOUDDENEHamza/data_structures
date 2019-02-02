@@ -21,18 +21,23 @@ int size(void) {
 }
 
 /*Get the item in the summit of stack*/
-int get(void) {
+void get(void) {
 	if (empty() == 1) {
 		printf("\nERROR : Can not get the summit of the stack, the stack is empty!\n");
-      		return -1;
+      		return;
 	}
-	return st->s[st->size - 1];	
+	printf("\n(%d, %d)\t(%d, %d)\n", st->s[st->size - 4], st->s[st->size - 3], st->s[st->size - 2], st->s[st->size - 1]);
+
+	return;	
 }
 
 /*Add value to sumiit of my stack*/
-void add(int value) {
-	st->size++;
-	st->s[st->size - 1];
+void add(int *x, int *y, int *a, int *b) {
+	st->size += 4;
+	st->s[st->size - 4] = *x;
+	st->s[st->size - 3] = *y;
+	st->s[st->size - 2] = *a;
+	st->s[st->size - 1] = *b;
 	return;
 }
 
@@ -42,6 +47,6 @@ void removeStack(void) {
                 printf("\nERROR : Can not remove item from stack, the stack is empty!\n");
       		return;
         }
-	st->size--;
+	st->size -= 4;
 	return;
 }

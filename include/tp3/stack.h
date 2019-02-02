@@ -17,10 +17,10 @@ int empty(void);
 int size(void);
 
 /*Get the item in the summit of stack*/
-int get(void);
+void get(void);
 
 /*Add value to summit of my stack*/
-void add(int value);
+void add(int *x, int *y, int *a, int *b);
 
 /*Remove item from the summit of my stack*/
 void removeStack(void);

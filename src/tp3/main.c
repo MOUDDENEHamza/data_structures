@@ -12,6 +12,7 @@ int main(int argc, char argv[]) {
 	time_t t;
 	int accept = 0;
 	char *status;
+	int x = 0, y = 1, a = 1, b = 1;
 
 	/*Start program*/
 	init_bar();//Display the bar init.
@@ -24,7 +25,8 @@ int main(int argc, char argv[]) {
 		separator();//Separate evry step of the program.
 	}
 	handle_stack();//Create my stack.
-	printf("%d\n", size());
+	add(&x, &y, &a, &b);//Make the the elementary steps in the stack.
+	get();
 	removeStack();
 	get();
 	return 0;

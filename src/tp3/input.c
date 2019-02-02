@@ -10,12 +10,17 @@
 int choice(int *accept, char status[]){
 	
 	printf("\n\nIf you want to choose this labyrinth input "GREEN"\"yes\""RESET" otherwise input "RED"\"no\""RESET".\n");
-	printf("\nYou choose : ");
-	scanf("%s", status);
-	if (strcmp(status, "yes") == 0){
-		*accept = 1;
-		return *accept;
-	}	
-
-	return *accept;
+	while(1) {
+		printf("\nYou choose : ");
+        	scanf("%s", status);
+		if (strcmp(status, "yes") == 0){
+			*accept = 1;
+			return *accept;
+		}	
+		if (strcmp(status, "no") == 0){
+                	return *accept;
+		}
+		printf("\n"RED"ERROR :"RESET" your input is not correct.\n");
+		continue;
+	}
 }
