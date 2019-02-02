@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "stack.h"
 
 #define RED "\x1B[31m"
 #define GREEN "\x1B[32m"
@@ -16,14 +15,15 @@ void init_bar(){
 	return;
 }
 
-/*Display the stack*/
-void display_stack(int *n, int *p, int **stack){
+/*Display the labyrinth*/
+void display_labyrinth(int *n, int *p, int **t){
 	int i;
 	int j;
-
+	
+	printf("\n");
 	for (i = 0; i < *n; i++) {
 		for (j = 0; j < *p; j++) {
-			if ( stack[i][j] == 0){
+			if ( t[i][j] == 0){
 				printf(RED"X"RESET"\t");
 			} else {
 				printf(BLUE"."RESET"\t");
@@ -31,7 +31,14 @@ void display_stack(int *n, int *p, int **stack){
 		}
 		printf("\n");
 	}
- 	printf("\n------------------------------------------------------------------------------\n\n");
 
 	return;	
+}
+
+/*Separate evry step of the program*/
+void separator() {
+
+	printf("\n------------------------------------------------------------------------------\n\n");
+
+	return;
 }
