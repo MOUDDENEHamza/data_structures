@@ -4,6 +4,7 @@
 #include "labyrinth.h"
 #include "displayShell.h"
 #include "input.h"
+#include "stack.h"
 
 /*Main function*/
 int main(int argc, char argv[]) {
