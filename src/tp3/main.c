@@ -23,6 +23,9 @@ int main(int argc, char argv[]) {
 		choice(&accept, status);//Give the user the choose of labyrinth.
 		separator();//Separate evry step of the program.
 	}
-
+	handle_stack();//Create my stack.
+	printf("%d\n", size());
+	removeStack();
+	get();
 	return 0;
 }
