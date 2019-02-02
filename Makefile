@@ -7,6 +7,7 @@ FILE_TP1 = hello sum update_sum
 FILE_TP2 = main
 BIN = bin/
 LIB = lib/
+SRC3 = $(wildcard src/tp3/*.c)
 FLAG = -lm
 GIT = git
 ADD = add .
@@ -40,9 +41,9 @@ run_tp2 :
 	./bin/main
 
 compile_tp3 :
-	$(GCC) -I include/tp3/ -c src/tp3/displayShell.c src/tp3/stack.c src/tp3/main.c
-	mv displayShell.o stack.o main.o $(LIB)
-	$(GCC) -o $(BIN)main lib/*.o
+	$(GCC) -I include/tp3/ -c $(SRC3)
+	mv *.o $(LIB)
+	$(GCC) -o $(BIN)main $(LIB)*.o
 
 run_tp3 : 
 	./bin/main
