@@ -32,8 +32,8 @@ run_tp1 :
 	done
 
 compile_tp2 :
-	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/init.c src/tp2/main.c
-	mv displayShell.o init.o main.o $(LIB)
+	$(GCC) -I include/tp2/ -c src/tp2/displayShell.c src/tp2/init.c src/tp2/gameRules.c src/tp2/main.c
+	mv displayShell.o init.o gameRules.o main.o $(LIB)
 	$(GCC) -o $(BIN)main lib/*.o
 
 run_tp2 : 

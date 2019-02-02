@@ -7,6 +7,6 @@
 typedef struct Card{
         int value;
         char color[BUFFER];
-} Card;
+} card;
 
 #endif

@@ -6,11 +6,12 @@
 #define SIZE_GAME 32
 
 /*Fill the array with the 32 cards*/
-void init_game(Card game[]){
+void init_game(card game[]){
         int i;
-        for (i = 0; i < SIZE_GAME; i++){
-                game[i].value = 7 + (i % 8);
-                if (i >= 0 && i < 8){
+        
+	for (i = 0; i < SIZE_GAME; i++){
+		game[i].value = 7 + (i % 8);
+		if (i >= 0 && i < 8){
                         strcpy(game[i].color, "heart");
                 }
                 if (i >= 8 && i < 16){
@@ -23,7 +24,8 @@ void init_game(Card game[]){
                         strcpy(game[i].color, "club");
                 }
         }
-        return;
+        
+	return;
 }
 
 /*Generate a random integer between 0 and 31*/
@@ -32,15 +34,17 @@ int random_integer(){
 }
 
 /*Permute 2 cards*/
-void permute(Card *card1, Card *card2){
-        Card temp = *card1;
-        *card1 = *card2;
+void permute(card *card1, card *card2){
+        card temp = *card1;
+        
+	*card1 = *card2;
         *card2 = temp;
-        return;
+        
+	return;
 }
 
 /*Mix the cards*/
-void mix(Card game[]){
+void mix(card game[]){
         int i;
         for (i = 0; i < SIZE_GAME / 2; i++){
                 permute(&game[random_integer()], &game[random_integer()]);//Permute two random cards.
@@ -49,9 +53,10 @@ void mix(Card game[]){
 }
 
 /*Distribute the cards to both players*/
-void distribute(Card game[], Card game1[], Card game2[], int *N){
+void distribute(card game[], card game1[], card game2[], int *N){
         int i;
-        for (i = 0; i < *N / 2; i ++){
+        
+	for (i = 0; i < *N / 2; i ++){
                 game1[i] = game[i];
 		game[i].value = 0;
 	}
@@ -59,5 +64,6 @@ void distribute(Card game[], Card game1[], Card game2[], int *N){
                 game2[i - (*N / 2)] = game[i];
 		game[i].value = 0;
         }
+
         return;
 }
