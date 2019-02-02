@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
+#include "labyrinth.h"
 
 /*Make the dynamic allocation on the precedent structure*/
 void handle_stack(void) {
@@ -48,5 +49,38 @@ void removeStack(void) {
       		return;
         }
 	st->size -= 4;
+	return;
+}
+
+/*Get the adjacent boxes*/
+void get_adjacent(int *a, int *b, int res[], int *size) {
+	int adjacent[8] = {*a - 1, *b, *a + 1, *b, *a, *b - 1, *a, *b + 1};
+	int i;
+
+	for (i = 0; i < 8; i += 2) {
+		if (l->t[adjacent[i]][adjacent[i + 1]] != 0 && (adjacent[i] != st->s[st->size - 4] || adjacent[i + 1] != st->s[st->size - 3])){
+			*size += 2;
+			res[*size - 2] = adjacent[i];
+		       	res[*size - 1] = adjacent[i + 1];
+		}
+	}	
+	return;
+}
+
+/*Browse and explore the labyrinth*/
+void browse(int *a, int *b, int res[], int *size){
+	int cpt;
+	
+	while (st->s[st->size - 1] != l->n - 1 && st->s[st->size - 1] != l->p - 1) {
+		get_adjacent(a, b, res, size);
+		add(a, b, &res[0], &res[1]);
+		get();
+		scanf("%d", &cpt);
+		*a = res[*size - 2];
+		*b = res[*size - 1];
+		*size = 0;
+		continue;
+	}
+	
 	return;
 }

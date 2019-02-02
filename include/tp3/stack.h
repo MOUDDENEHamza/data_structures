@@ -25,4 +25,10 @@ void add(int *x, int *y, int *a, int *b);
 /*Remove item from the summit of my stack*/
 void removeStack(void);
 
+/*Get the adjacent boxes*/
+void get_adjacent(int *a, int *b, int res[], int *size);
+
+/*Browse and explore the labyrinth*/
+void browse(int *a, int *b, int res[], int *size);
+
 #endif

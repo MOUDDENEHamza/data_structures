@@ -6,13 +6,17 @@
 #include "input.h"
 #include "stack.h"
 
+#define BUFFER 255
+
 /*Main function*/
 int main(int argc, char argv[]) {
 	/*Initialize variables*/
 	time_t t;
 	int accept = 0;
-	char *status;
+	char status[BUFFER];
 	int x = 0, y = 1, a = 1, b = 1;
+	int size = 0;
+	int res[size];
 
 	/*Start program*/
 	init_bar();//Display the bar init.
@@ -26,8 +30,7 @@ int main(int argc, char argv[]) {
 	}
 	handle_stack();//Create my stack.
 	add(&x, &y, &a, &b);//Make the the elementary steps in the stack.
-	get();
-	removeStack();
-	get();
+	browse(&a, &b, res, &size);//Explore the labyrinth.
+
 	return 0;
 }
