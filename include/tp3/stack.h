@@ -28,6 +28,9 @@ void removeStack(void);
 /*Get the adjacent boxes*/
 void get_adjacent(int *a, int *b, int res[], int *size);
 
+/*Check if the exploration is ending*/
+int end_browsing(void);
+
 /*Browse and explore the labyrinth*/
 void browse(int *a, int *b, int res[], int *size);
 

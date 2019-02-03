@@ -54,7 +54,7 @@ void removeStack(void) {
 
 /*Get the adjacent boxes*/
 void get_adjacent(int *a, int *b, int res[], int *size) {
-	int adjacent[8] = {*a - 1, *b, *a + 1, *b, *a, *b - 1, *a, *b + 1};
+	int adjacent[8] = {*a + 1, *b, *a, *b + 1, *a, *b - 1, *a - 1, *b};
 	int i;
 
 	for (i = 0; i < 8; i += 2) {
@@ -67,17 +67,33 @@ void get_adjacent(int *a, int *b, int res[], int *size) {
 	return;
 }
 
+/*Check if the exploration is ending*/
+int end_browsing(void){
+	if (st->s[st->size - 2] == l->n - 1 && st->s[st->size - 1] == l->p - 2){
+		return 1;
+	}
+	return 0;
+}
+
+
 /*Browse and explore the labyrinth*/
 void browse(int *a, int *b, int res[], int *size){
-	int cpt;
-	
-	while (st->s[st->size - 1] != l->n - 1 && st->s[st->size - 1] != l->p - 1) {
+	int i;
+
+	while (!(end_browsing())) {
 		get_adjacent(a, b, res, size);
 		add(a, b, &res[0], &res[1]);
+		printf("res : ");
+		for (i = 0; i < *size; i += 2){
+               		printf("(%d, %d)\t", res[i], res[i + 1]);
+	        }
 		get();
-		scanf("%d", &cpt);
-		*a = res[*size - 2];
-		*b = res[*size - 1];
+		printf("stack : ");
+		for (i = 0; i < st->size; i += 2){
+                        printf("(%d, %d)\t", st->s[i], st->s[i + 1]);
+                }
+		*a = st->s[st->size - 2];
+		*b = st->s[st->size - 1];
 		*size = 0;
 		continue;
 	}

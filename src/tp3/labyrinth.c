@@ -3,8 +3,8 @@
 #include <string.h>
 #include "labyrinth.h"
 
-#define LINES 70
-#define COLUMNS 30
+#define LINES 10
+#define COLUMNS 10
 
 /*Make the dynamic allocation on the precedent structure*/
 void handle_labyrinth(){
