@@ -32,6 +32,7 @@ int main(int argc, char argv[]) {
 	add(&x, &y, &a, &b);//Make the the elementary steps in the stack.
 	browse(&a, &b, res, &size);//Explore the labyrinth.
 	end_browsing();//Check if the exploration is ending.
+	end_bar();//Display the end bar.
 
 	return 0;
 }

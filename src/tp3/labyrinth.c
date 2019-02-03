@@ -3,8 +3,8 @@
 #include <string.h>
 #include "labyrinth.h"
 
-#define LINES 10
-#define COLUMNS 10
+#define LINES 70
+#define COLUMNS 30
 
 /*Make the dynamic allocation on the precedent structure*/
 void handle_labyrinth(){
@@ -39,7 +39,7 @@ void init_labyrinth(){
                                 l->t[i][j] = 0;
                                 continue;
                         } else {
-				l->t[i][j] = (rand() / (double)RAND_MAX) < 0.7;
+				l->t[i][j] = (rand() / (double)RAND_MAX) < 0.8;
 			}
 		}
 	}

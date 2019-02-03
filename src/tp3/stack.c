@@ -27,7 +27,7 @@ void get(void) {
 		printf("\nERROR : Can not get the summit of the stack, the stack is empty!\n");
       		return;
 	}
-	printf("\n(%d, %d)\t(%d, %d)\n", st->s[st->size - 4], st->s[st->size - 3], st->s[st->size - 2], st->s[st->size - 1]);
+	printf("\nSummit of stack : (%d, %d)  (%d, %d)\n", st->s[st->size - 4], st->s[st->size - 3], st->s[st->size - 2], st->s[st->size - 1]);
 
 	return;	
 }
@@ -56,7 +56,7 @@ void removeStack(void) {
 void get_adjacent(int *a, int *b, int res[], int *size) {
 	int adjacent[8] = {*a + 1, *b, *a, *b + 1, *a, *b - 1, *a - 1, *b};
 	int i;
-
+	
 	for (i = 0; i < 8; i += 2) {
 		if (l->t[adjacent[i]][adjacent[i + 1]] != 0 && (adjacent[i] != st->s[st->size - 4] || adjacent[i + 1] != st->s[st->size - 3])){
 			*size += 2;
@@ -83,7 +83,7 @@ void browse(int *a, int *b, int res[], int *size){
 	while (!(end_browsing())) {
 		get_adjacent(a, b, res, size);
 		add(a, b, &res[0], &res[1]);
-		printf("res : ");
+		printf("\nadjacent boxes : ");
 		for (i = 0; i < *size; i += 2){
                		printf("(%d, %d)\t", res[i], res[i + 1]);
 	        }
@@ -91,12 +91,13 @@ void browse(int *a, int *b, int res[], int *size){
 		printf("stack : ");
 		for (i = 0; i < st->size; i += 2){
                         printf("(%d, %d)\t", st->s[i], st->s[i + 1]);
-                }
+		}
+		printf("\n\n");
 		*a = st->s[st->size - 2];
 		*b = st->s[st->size - 1];
 		*size = 0;
 		continue;
 	}
-	
+
 	return;
 }

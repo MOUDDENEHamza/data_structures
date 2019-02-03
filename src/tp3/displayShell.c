@@ -42,3 +42,13 @@ void separator() {
 
 	return;
 }
+
+/*Display the end bar*/
+void end_bar(void) {
+	
+	printf("\n\nThe labyrinth has been explored.\n\n");
+	printf("\n\t\t\t\t"GREEN"END LABYRINTH"RESET"\t\t\t\n");
+        printf("\n******************************************************************************\n\n");
+
+	return;
+}
