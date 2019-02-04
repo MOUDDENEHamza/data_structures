@@ -9,6 +9,7 @@ BIN = bin/
 LIB = lib/
 SRC3 = $(wildcard src/tp3/*.c)
 SRC4 = $(wildcard src/tp4/*.c)
+SRC_CC1 = $(wildcard src/cc1/*.c)
 FLAG = -lm
 GIT = git
 ADD = add .
@@ -55,6 +56,14 @@ compile_tp4 :
 	$(GCC) -o $(BIN)main $(LIB)*.o
 
 run_tp4 :
+	./bin/main
+
+compile_cc1 :
+	$(GCC) -I include/cc1/ -c $(SRC_CC1)
+	mv *.o $(LIB)
+	$(GCC) -o $(BIN)main $(LIB)*.o $(FLAG)
+
+run_cc1 :
 	./bin/main
 
 git : 
