@@ -8,6 +8,7 @@ FILE_TP2 = main
 BIN = bin/
 LIB = lib/
 SRC3 = $(wildcard src/tp3/*.c)
+SRC4 = $(wildcard src/tp4/*.c)
 FLAG = -lm
 GIT = git
 ADD = add .
@@ -48,6 +49,13 @@ compile_tp3 :
 run_tp3 : 
 	./bin/main
 
+compile_tp4 :
+	$(GCC) -I include/tp4/ -c $(SRC4)
+	mv *.o $(LIB)
+	$(GCC) -o $(BIN)main $(LIB)*.o
+
+run_tp4 :
+	./bin/main
 
 git : 
 	$(READ) "Enter the message to set up the commit : " message; \
