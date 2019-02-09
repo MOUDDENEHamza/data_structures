@@ -17,9 +17,9 @@ void init_bar(void) {
 /*Display a complex number*/
 complx display(complx *c){
         if (c->f == ct) {
-		printf("z = %f + i * %f\n", c->ct.a, c->ct.b);
+		printf("Cartesian format : z = %f + i * %f\n", c->ct.a, c->ct.b);
 	} else {
-		printf("z = %f + i * %f\n", c->pl.rho, c->pl.theta);
+		printf("Polar format : z = %f + exp(%f)\n", c->pl.rho, c->pl.theta);
 	}
 }
 

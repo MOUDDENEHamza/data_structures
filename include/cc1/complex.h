@@ -26,15 +26,15 @@ typedef struct {
 } complx;
 
 /*Transform a polar complex number to cartesian complex number*/
-complx polar_cartesian(complx c1);
+complx polar_cartesian(complx *c1);
 
 /*Transform a cartesian complex number to polar complex number*/
-complx cartesian_polar(complx c1);
+complx cartesian_polar(complx *c1);
 
 /*Input a complex number in cartesian format*/
 complx input_cartesian(complx *c);
 
 /*Add two complex numbers*/
-complx add(complx c1, complx c2);
+complx add(complx *c1, complx *c2);
 
 #endif
