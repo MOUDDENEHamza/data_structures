@@ -30,3 +30,13 @@ complx input_cartesian(complx *c) {
 	printf("Input the imaginary part : ");
         scanf("%f", &c->ct.b);
 }
+
+/*Add two complex numbers*/
+complx add(complx *c1, complx *c2) {
+	complx c3;
+	c3.f = ct;
+	c3.ct.a = c1->ct.a + c2->ct.a;
+	c3.ct.b = c1->ct.b + c2->ct.b;
+	printf("\nAddition of two complex numbers.\n");
+	return c3;
+}

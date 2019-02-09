@@ -5,7 +5,7 @@
 /*Main Function*/
 int main(int argc, char *argv[]) {
 	/*Initialize variables*/
-	complx c1, c2;
+	complx c1, c2, c3;
 
 	/*Start program*/
 	init_bar();//Display the init bar.
@@ -17,6 +17,8 @@ int main(int argc, char *argv[]) {
 	display(&c1);//Display a complex number.
 	c1 = polar_cartesian(&c1);//Transform a polar complex number to cartesian complex number.
         display(&c1);//Display a complex number.
+	c3 = add(&c1, &c2);//Add two complex numbers.
+	display(&c3);//Display a complex number.
 	end_bar();//Display the end bar.
 
 	return 0;
