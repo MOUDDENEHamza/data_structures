@@ -53,7 +53,7 @@ run_tp3 :
 compile_tp4 :
 	$(GCC) -I include/tp4/ -c $(SRC4)
 	mv *.o $(LIB)
-	$(GCC) -o $(BIN)main $(LIB)*.o
+	$(GCC) -o $(BIN)main $(LIB)*.o $(FLAG)
 
 run_tp4 :
 	./bin/main

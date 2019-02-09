@@ -15,11 +15,20 @@ typedef struct {
 	float *vct;
 } Vector;
 
+typedef struct {
+	Vector normal_vector;
+	Vector planar_vector;
+	float *equation;
+} Plan;
+
 /*Make the dynamic allocation on the point structure*/
 Point *new_point(void);
 
 /*Make the dynamic allocation on the vector structure*/
 Vector *new_vector(void);
+
+/*Make the dynamic allocation on the plan structure*/
+Plan *new_plan(void);
 
 /*Create a point by asking user to input the coordinates*/
 Point input_point(void);
@@ -35,5 +44,11 @@ Vector vector_product(Vector *vect1, Vector *vect2);
 
 /*Calculate the vector product*/
 float scalar_product(Vector *vect1, Vector *vect2);
+
+/*Calculate the norm of a vector*/
+float norm(Vector *vect);
+
+/*Calculate the plan equation*/
+Plan plan_equation(Point *pt1, Point *pt2, Point *pt3);
 
 #endif

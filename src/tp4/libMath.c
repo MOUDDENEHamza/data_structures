@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "libMath.h"
 
 #define DIMENSION  3
@@ -15,6 +16,13 @@ Vector *new_vector(void) {
         Vector *vect = (Vector *) malloc(sizeof(Vector));
         vect->vct = (float *) malloc(DIMENSION * sizeof(float));
 	return vect;
+}
+
+/*Make the dynamic allocation on the plan structure*/
+Plan *new_plan(void) {
+	Plan *pl = (Plan *) malloc(sizeof(Plan));
+        pl->equation = (float *) malloc(4 * sizeof(float));
+        return pl;
 }
 
 /*Create a point by asking user to input the coordinates*/
@@ -64,4 +72,29 @@ float scalar_product(Vector *vect1, Vector *vect2) {
 		res += vect1->vct[i] * vect2->vct[i];
 	}
 	return res;
+}
+
+/*Calculate the norm of a vector*/
+float norm(Vector *vect) {
+	float res;
+        res = sqrt(pow(vect->vct[0], 2) + pow(vect->vct[1], 2) + pow(vect->vct[2], 2));
+        return res;
+}
+
+/*Calculate the plan equation*/
+Plan plan_equation(Point *pt1, Point *pt2, Point *pt3) {
+	float o = 0;
+	Plan pl = *new_plan();
+	Point origin;
+	Vector vect1, vect2;
+	origin = create_point(&o, &o, &o);
+	vect1 = vectorize(pt1, pt2);
+	vect2 = vectorize(pt2, pt3);
+	pl.normal_vector = vector_product(&vect1, &vect2);
+        pl.planar_vector = vectorize(pt1, &origin);
+	pl.equation[0] = pl.normal_vector.vct[0];
+	pl.equation[1] = pl.normal_vector.vct[1];
+	pl.equation[2] = pl.normal_vector.vct[2];
+	pl.equation[3] = -(scalar_product(&pl.normal_vector, &pl.planar_vector));
+	return pl;
 }
