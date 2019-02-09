@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "displayShell.h"
+#include "complex.h"
 
 #define RED "\x1B[31m"
 #define GREEN "\x1B[32m"
@@ -14,8 +15,12 @@ void init_bar(void) {
 }
 
 /*Display a complex number*/
-void display(float *a, float *b){
-        printf("z = %f + i * %f\n", *a, *b);
+complx display(complx *c){
+        if (c->f == ct) {
+		printf("z = %f + i * %f\n", c->ct.a, c->ct.b);
+	} else {
+		printf("z = %f + i * %f\n", c->pl.rho, c->pl.theta);
+	}
 }
 
 /*Display the end bar*/

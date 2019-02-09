@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include "displayShell.h"
-#include "complexe.h"
+#include "complex.h"
 
 /*Main Function*/
 int main(int argc, char *argv[]) {
 	/*Initialize variables*/
-	struct cartesian ct1, ct2;
-	struct polar pl1, pl2;
+	complx c1, c2;
 
-	/*Start the program*/
+	/*Start program*/
 	init_bar();//Display the init bar.
-	input_cartesian(&ct1.a, &ct1.b);//Input a complex number in cartesian format.
-	display(&ct1.a, &ct1.b);//Display a complex number.
-	input_cartesian(&ct2.a, &ct2.b);//Input a complex number in cartesian format.
-	display(&ct2.a, &ct2.b);//Display a complex number.
-	cartesian_polar(&ct1.a, &ct2.b);//Transform a cartesian complex number to polar complex number.
+	input_cartesian(&c1);//Input a complex number in cartesian format.
+	display(&c1);//Display a complex number.
+	input_cartesian(&c2);//Input a complex number in cartesian format.
+	display(&c2);//Display a complex number.
+	cartesian_polar(c1);//Transform a cartesian complex number to polar complex number.
 	end_bar();//Display the end bar.
 
 	return 0;
