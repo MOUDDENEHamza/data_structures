@@ -19,6 +19,11 @@ void display_equation(Plan *plan) {
 	printf("\nEquation of plan : %f * x + %f * y + %f * z + %f = 0\n", plan->equation[0], plan->equation[1], plan->equation[2], plan->equation[3]);
 }
 
+/*Display the point*/
+void display_point(Point *pt) {
+	printf("\nCenter of gravity : x = %f\ty = %f\tz = %f\n", pt->x, pt->y, pt->z);
+}
+
 /*Display the end bar*/
 void end_bar(void) {
         printf("\n\n\t\t\t\t"GREEN"THE END"RESET"\t\t\t\n");

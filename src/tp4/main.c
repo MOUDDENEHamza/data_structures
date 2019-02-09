@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "triangle.h"
 #include "displayShell.h"
 #include "libMath.h"
 
@@ -8,10 +9,10 @@ int main(int argc, char *argv[]) {
 	float x = 1;
 	float y = 2;
 	float z = 3;
-	Point pt1, pt2, pt3, pt4;
+	Point pt1, pt2, pt3, pt4, center_point;
 	Vector vect1, vect2, vect3;
 	Plan plan;
-
+	
 	/*Start program*/
 	init_bar();//Display the init bar.
 	pt1 = input_point();//Ask user to input the coordinates then create the point by using the input.
@@ -26,6 +27,8 @@ int main(int argc, char *argv[]) {
 	printf("Norm : %f\n", norm(&vect3));//Calculate the scalar product.
 	plan = plan_equation(&pt1, &pt2, &pt3);//Calculate the plan equation.
 	display_equation(&plan);//Display the plan equation.
+	center_point = center_gravity(&pt1, &pt2, &pt3);//Determine the center of gravity.
+	display_point(&center_point);//Display the point coordinates.
 	end_bar();//Display the end bar.
 
 	return 0;
