@@ -30,6 +30,6 @@ float area_triangle(Point *pt1, Point *pt2, Point *pt3) {
         vect1 = vectorize(pt1, pt2);
         vect2 = vectorize(pt2, pt3);
 	vect3 = vector_product(&vect1, &vect2);
-	res = (nomr(&vect1) * norm(&vect3)) / 3;
+	res = (norm(&vect1) * norm(&vect3)) / 3;
 	return res;
 }

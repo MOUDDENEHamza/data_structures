@@ -9,6 +9,7 @@ BIN = bin/
 LIB = lib/
 SRC3 = $(wildcard src/tp3/*.c)
 SRC4 = $(wildcard src/tp4/*.c)
+SRC5 = $(wildcard src/tp5/*.c)
 SRC_CC1 = $(wildcard src/cc1/*.c)
 FLAG = -lm
 GIT = git
@@ -65,6 +66,15 @@ compile_cc1 :
 
 run_cc1 :
 	./bin/main
+
+compile_tp5 :
+	$(GCC) -I include/tp5/ -c $(SRC5)
+	mv *.o $(LIB)
+	$(GCC) -o $(BIN)main $(LIB)*.o $(FLAG)
+
+run_tp5 :
+	./bin/main
+
 
 git : 
 	$(READ) "Enter the message to set up the commit : " message; \
