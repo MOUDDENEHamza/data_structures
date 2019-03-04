@@ -34,13 +34,33 @@ Arc arc(int *x, int *y);
 Graph initializeGraph(void);
 
 /*
+ * Check if the arc exists in the graph
+ */
+int exist_arc(Arc arc, Graph g);
+
+/*
  * Add arc a to graph
  */
 void add_arc(Arc a, Graph g);
 
 /*
+ * Remove arc from graph
+ */
+void remove_arc(Arc a, Graph g);
+
+/*
  * Exist summit in the graph
  */
 int exist_summit(Summit s, Graph g);
+
+/*
+ * Display arc
+ */
+void display_arc(Arc a);
+
+/**
+ * Display all arcs in the graph
+ */
+void display_all_arc(Graph g);
 
 #endif 

@@ -58,6 +58,34 @@ Graph initializeGraph(void) {
 }
 
 /*
+ * Check if the arc exists in the graph
+ */
+int exist_arc(Arc arc, Graph g){
+	int equal = 1;
+	Arc a_check;
+	if (g->list_arcs == NULL) {
+		return 1;
+	} else {
+		while (a_check->next != NULL && equal == 1) {
+			if ((a->x == a_check->x) && (a->y == a_check->y)) {
+				Equal = 0;
+			}
+			a_check = a_check->suivant;
+		}
+	}
+}
+
+/*
+ * Remove arc from graph
+ */
+void remove_arc(Arc a, Graph g) {
+	Arc a_check = g->list_arcs;
+	if (exist_arc(a, g) == 0){
+		
+	}
+}
+
+/*
  * Add arc a to graph
  */
 void add_arc(Arc a, Graph g) {
