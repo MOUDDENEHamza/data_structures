@@ -26,7 +26,7 @@ Summit summit(void);
 /*
  * Constructor of Arcs structure
  */
-Arc arc(void);
+Arc arc(int *x, int *y);
 
 /*
  * Constructor of Graph structure

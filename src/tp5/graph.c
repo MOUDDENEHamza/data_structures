@@ -15,8 +15,8 @@ struct summit {
  * This structure is about the arcs of the summit
  */
 struct arc {
-	int Ix;
-	int Iy;
+	int x;
+	int y;
 	Arc next;
 };
 
@@ -39,8 +39,11 @@ Summit summit(void) {
 /*
  * Constructor of Arcs structure
  */
-Arc arc(void) {
+Arc arc(int *x, int *y) {
 	Arc a = (Arc) malloc(sizeof(Arc));
+	a->x = *x;
+	a->y = *y;
+	a->next = NULL;
 	return a;
 }
 
@@ -78,6 +81,13 @@ int exist_summit(Summit s, Graph g) {
 	if (g->list_summits == NULL) {
 		return 1;
 	} else {
-		return 0;
+		s_check = g->list_summits;
+		while (s_check->next != NULL) {
+			if (s_check->index == s->index) {
+				return 0;
+			}
+			s_check = s_check->next;
+		}
+		return 1;
 	}
 }
