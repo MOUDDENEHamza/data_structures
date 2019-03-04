@@ -2,7 +2,9 @@
 #include "displayShell.h"
 #include "graph.h"
 
-/*Main function*/
+/*
+ * Main function
+ */
 int main(int argc, char *argv[]) {
 	/*Initialize varibles*/
 	Graph g;
@@ -10,7 +12,7 @@ int main(int argc, char *argv[]) {
 
 	/*Start program*/
 	init_bar();//Display the init bar.
-	initialize_Graph(&g, &n);//Allows to add summits to the graph.
+	initializeGraph();//Allows to initialize summits to the graph.
 	end_bar();//Display the end bar.
 
 	return 0;
