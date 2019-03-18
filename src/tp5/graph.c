@@ -50,7 +50,7 @@ Arc arc(int *x, int *y) {
 /*
  * Constructor of Graph structure
  */
-Graph initializeGraph(void) {
+Graph graph(void) {
 	Graph g = (Graph) malloc(sizeof(Graph));
 	g->list_summits = NULL;
 	g->list_arcs = NULL;

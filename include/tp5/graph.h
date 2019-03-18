@@ -31,7 +31,7 @@ Arc arc(int *x, int *y);
 /*
  * Constructor of Graph structure
  */
-Graph initializeGraph(void);
+Graph graph(void);
 
 /*
  * Check if the arc exists in the graph
@@ -52,15 +52,5 @@ void remove_arc(Arc a, Graph g);
  * Exist summit in the graph
  */
 int exist_summit(Summit s, Graph g);
-
-/*
- * Display arc
- */
-void display_arc(Arc a);
-
-/**
- * Display all arcs in the graph
- */
-void display_all_arc(Graph g);
 
 #endif 
