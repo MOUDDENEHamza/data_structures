@@ -13,32 +13,6 @@ void init_bar(void) {
 	printf("\n******************************************************************************\n");
 }
 
-/*
- * Display arc
- */
-void display_arc(Arc a) {
-	printf("___Arc___\n");
-	printf("(%d, %d)\n",a->x,a->y);
-}
-
-/*
- * Display all arcs in the graph
- */
-void display_all_arc(Graph g) {
-	if (g->list_arcs == NULL)
-		printf(RED"ERROR :"RESET"There are any arcs in the graph !\n");
-	else {
-		Arc a = g->list_arcs;
-		printf("Arc list in the graph\n");
-		while (a != NULL)
-		{
-			printf("\tArc (%d,%d)\n",a->x,a->y);
-			a = a->next;
-		}
-	}
-	printf("------------------------\n");
-}
-
 /*Display the end bar*/
 void end_bar(void) {
         printf("\n\n\t\t\t\t"GREEN"THE END"RESET"\t\t\t\n");

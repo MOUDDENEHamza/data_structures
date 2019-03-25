@@ -18,6 +18,16 @@ typedef struct arc *Arc;
  */
 typedef struct graph *Graph;
 
+/**
+ * This structure is doubly linked list to search descending
+ */
+typedef struct queue *Queue;
+
+/**
+ * Constructor of the queue structure
+ */
+Queue new_queue(void);
+
 /*
  * Constructor of Summit structure
  */
@@ -52,5 +62,15 @@ void remove_arc(Arc a, Graph g);
  * Exist summit in the graph
  */
 int exist_summit(Summit s, Graph g);
+
+/*
+ * Display arc
+ */
+void display_arc(Arc a);
+
+/*
+ * Display all arcs in the graph
+ */
+void display_all_arc(Graph g);
 
 #endif 

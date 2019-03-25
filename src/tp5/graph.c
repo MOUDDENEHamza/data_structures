@@ -28,6 +28,22 @@ struct graph {
 	 Arc list_arcs;
 };
 
+/**
+ * This structure is doubly linked list to search descending
+ */
+struct queue {//Queue of a doubly linked list
+	char value;
+	Queue next;//Pointer to next node in DLL queue
+	Queue prev;//Pointer to previous node in DDL queue
+};
+
+/**
+ * Constructor of the queue structure
+ */
+Queue new_queue(void) {
+
+}
+
 /*
  * Constructor of Summit structure
  */
@@ -118,4 +134,30 @@ int exist_summit(Summit s, Graph g) {
 		}
 		return 1;
 	}
+}
+
+/*
+ * Display arc
+ */
+void display_arc(Arc a) {
+        printf("___Arc___\n");
+        printf("(%d, %d)\n",a->x,a->y);
+}
+
+/*
+ * Display all arcs in the graph
+ */
+void display_all_arc(Graph g) {
+        if (g->list_arcs == NULL)
+                printf("ERROR : There are any arcs in the graph !\n");
+        else {
+                Arc a = g->list_arcs;
+                printf("Arc list in the graph\n");
+                while (a != NULL)
+                {
+                        printf("\tArc (%d,%d)\n",a->x,a->y);
+                        a = a->next;
+                }
+        }
+        printf("------------------------\n");
 }
